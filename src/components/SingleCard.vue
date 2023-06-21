@@ -12,7 +12,7 @@ export default{
 
   data(){
     return{
-
+      NationsWithoutFlag:["en","ja","ko","te","zh"]
     }
     
   }
@@ -25,8 +25,10 @@ export default{
     <p>{{ title }}</p>
     <p>{{ originaltitle }}</p>
     <!-- Per far la bandiera basta mettre fi fi-(2 iniziali stato ) - vedi demo -->
-    <span :class="`fi fi-${language}`" v-if="language != 'en'" id="bandiera"></span>
-    <span>{{ language }}</span>
+    <div class="box-language">
+      <span v-if="NationsWithoutFlag.includes(language)" class="fi fi-xx"> {{ language }} </span>
+      <span v-else :class="`fi fi-${language}`"> {{ language }} </span>
+    </div>
     <p>{{ vote }}</p>
   </div>
   <hr>
@@ -35,8 +37,12 @@ export default{
 <style lang="scss" scoped>
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
 
-span#bandiera{
-  padding-right: 1rem;
+div.box-language{
+  color: white;
+  background-color: black;
+  padding: 0.5rem;
+  .fi{
+  width: 70px;
+  }
 }
-
 </style>
