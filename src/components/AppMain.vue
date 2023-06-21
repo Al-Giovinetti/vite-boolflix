@@ -2,6 +2,7 @@
 import ContainerFilmList from "./ContainerFilmList.vue"
 import FilmSearchbar from "./FilmSearchbar.vue"
 import axios from "axios"
+
 export default{
   name:"AppMain",
 
@@ -12,14 +13,15 @@ export default{
 
   data(){
     return{
-        MyApiUrl : "https://api.themoviedb.org/3/discover/movie?api_key=583d8ce9b90d4a8ab4d2e53f16080836",
+        MyApiUrl : "https://api.themoviedb.org/3/search/movie?api_key=583d8ce9b90d4a8ab4d2e53f16080836&query=",
         FilmList : [ ],
     }
   },
 
   methods:{
-    getTotalFilmList(){
-        axios.get(this.MyApiUrl)
+    getMyFilms(serched){
+      if(serched != undefined){
+        axios.get(this.MyApiUrl + serched)
         .then((response) => {
             console.log(response.data.results);
             this.FilmList = response.data.results
@@ -27,11 +29,12 @@ export default{
         .catch(function (error) {
             console.log(error);
         })
+      }
     }
   },
 
   created(){
-    this.getTotalFilmList()
+    this.getMyFilms()
   }
 
 }
@@ -40,8 +43,9 @@ export default{
 <template>
     <main>
         <p>corpo</p>
-        <FilmSearchbar />
+        <FilmSearchbar @searchfilm = "getMyFilms" />
         <ContainerFilmList />
+        {{ FilmList }}
     </main>
 </template>
 

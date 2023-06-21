@@ -14,7 +14,7 @@ export default{
 
 <template>
     <input type="text" name="searched-film" id="searched-film" v-model="SerchedFilm">
-    <button @click="$emit('searchbar')">cerca</button>
+    <button @click="$emit('searchfilm',SerchedFilm)">cerca</button>
     <span>{{ SerchedFilm }}</span>
 </template>
 
