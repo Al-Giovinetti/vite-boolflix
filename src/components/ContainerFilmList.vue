@@ -6,6 +6,10 @@ export default{
 
   components:{
     SingleCard,
+  },
+
+  props:{
+    myfilmlist :Array,
   }
 
 }
@@ -13,8 +17,12 @@ export default{
 
 <template>
     <div>
-        <p>container film</p>
-        <SingleCard />
+        <SingleCard v-for="film in myfilmlist"
+        :title = film.title
+        :originaltitle = film.original_title
+        :language = film.original_language
+        :vote = film.vote_average
+          />
     </div>
     
 </template>

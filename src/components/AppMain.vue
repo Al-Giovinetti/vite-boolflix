@@ -44,8 +44,8 @@ export default{
     <main>
         <p>corpo</p>
         <FilmSearchbar @searchfilm = "getMyFilms" />
-        <ContainerFilmList />
-        {{ FilmList }}
+        <ContainerFilmList 
+          :myfilmlist = "FilmList" />
     </main>
 </template>
 
