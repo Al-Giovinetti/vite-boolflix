@@ -7,7 +7,7 @@ export default{
     title : String,
     originaltitle : String,
     language : String,
-    vote :String,
+    vote :Number,
   }
 
 }
@@ -22,5 +22,6 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+@import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 </style>

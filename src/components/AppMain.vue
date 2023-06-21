@@ -42,7 +42,6 @@ export default{
 
 <template>
     <main>
-        <p>corpo</p>
         <FilmSearchbar @searchfilm = "getMyFilms" />
         <ContainerFilmList 
           :myfilmlist = "FilmList" />
