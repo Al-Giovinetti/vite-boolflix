@@ -14,13 +14,16 @@ export default{
   data(){
     return{
       NationsWithoutFlag:["en","ja","ko","te","zh"],
-      newVote : Math.ceil(this.vote / 2)
+      newVote : Math.ceil(this.vote / 2),
     } 
   },
 
   methods:{
     getImage(urlElement){
       return new URL(`https://image.tmdb.org/t/p/original/${urlElement}`)
+    },
+    getDifference(vote){
+      return 5 - this.newVote
     }
   }
 
@@ -40,7 +43,11 @@ export default{
       <span v-if="NationsWithoutFlag.includes(language)" class="fi fi-xx"> {{ language }} </span>
       <span v-else :class="`fi fi-${language}`"> {{ language }} </span>
     </div>
-    <p>{{ newVote }}</p>
+    <div class="box-star">
+      <span>{{ newVote }}</span>
+      <i v-for="n in newVote" class="fa-solid fa-star"></i>
+      <i v-for="n in getDifference(newVote)" class="fa-regular fa-star"></i>
+    </div>
   </div>
   <hr>
 </template>
