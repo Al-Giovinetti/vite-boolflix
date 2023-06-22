@@ -17,14 +17,19 @@ export default{
 </script>
 
 <template>
-    <div>
-        <SingleCard v-for="film in myfilmlist"
+  <div>
+    <h2>Film Trovati</h2>
+    <div class="d-flex">
+      <SingleCard v-for="film in myfilmlist" 
         :title = film.title
         :originaltitle = film.original_title
         :language = film.original_language
         :vote = film.vote_average
         :image = film.poster_path
-          />
+      />
+    </div>
+    <h2>Serie trovate</h2>
+    <div class="d-flex">
         <SingleCard v-for="serie in myserielist" 
         :title = serie.name
         :originaltitle = serie.original_name
@@ -32,9 +37,20 @@ export default{
         :vote = serie.vote_average 
         :image = serie.poster_path />
     </div>
+  </div>
     
 </template>
 
 <style lang="scss" scoped>
+h2{
+  padding: 1rem;
+}
+div.d-flex{
+  overflow-x:auto;
+}
+::-webkit-scrollbar{
+  width: 0;
+}
+
 
 </style>
