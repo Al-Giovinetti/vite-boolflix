@@ -13,7 +13,8 @@ export default{
 
   data(){
     return{
-      NationsWithoutFlag:["en","ja","ko","te","zh"]
+      NationsWithoutFlag:["en","ja","ko","te","zh"],
+      newVote : Math.ceil(this.vote / 2)
     } 
   },
 
@@ -39,7 +40,7 @@ export default{
       <span v-if="NationsWithoutFlag.includes(language)" class="fi fi-xx"> {{ language }} </span>
       <span v-else :class="`fi fi-${language}`"> {{ language }} </span>
     </div>
-    <p>{{ vote }}</p>
+    <p>{{ newVote }}</p>
   </div>
   <hr>
 </template>
@@ -66,6 +67,5 @@ div.box-language{
   width: 70px;
   }
 }
-
 
 </style>
