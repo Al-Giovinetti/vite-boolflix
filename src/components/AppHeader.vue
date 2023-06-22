@@ -15,7 +15,7 @@ export default{
 <style lang="scss" scoped>
 header{
   padding: 1rem;
-  background-color: rgb(56, 55, 55);
+  background-color: rgb(37, 36, 36);
 }
 
 h1{

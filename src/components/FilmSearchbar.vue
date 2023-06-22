@@ -22,5 +22,27 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+div{
+  padding: 1rem;
+}
+
+input{
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 0.2rem;
+}
+
+button{
+  padding: 0.2rem;
+  margin-left:0.5rem;
+  background-color: black;
+  border: black;
+  cursor: pointer;
+    i{
+      color: white;
+    }
+}
 
 </style>
