@@ -10,6 +10,7 @@ export default{
 
   props:{
     myfilmlist :Array,
+    myserielist : Array
   }
 
 }
@@ -23,6 +24,11 @@ export default{
         :language = film.original_language
         :vote = film.vote_average
           />
+        <SingleCard v-for="serie in myserielist" 
+        :title = serie.name
+        :originaltitle = serie.original_name
+        :language = serie.original_language
+        :vote = serie.vote_average />
     </div>
     
 </template>

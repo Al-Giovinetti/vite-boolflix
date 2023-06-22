@@ -13,29 +13,40 @@ export default{
 
   data(){
     return{
-        MyApiUrl : "https://api.themoviedb.org/3/search/movie?api_key=583d8ce9b90d4a8ab4d2e53f16080836&query=",
+        FilmApiUrl : "https://api.themoviedb.org/3/search/movie?api_key=583d8ce9b90d4a8ab4d2e53f16080836&query=",
         FilmList : [ ],
+        SerieApiUrl : "https://api.themoviedb.org/3/search/tv?api_key=583d8ce9b90d4a8ab4d2e53f16080836&query=",
+        SerieList : [ ],
     }
   },
 
   methods:{
     getMyFilms(serched){
       if(serched != undefined){
-        axios.get(this.MyApiUrl + serched)
+        axios.get(this.FilmApiUrl + serched)
         .then((response) => {
             console.log(response.data.results);
             this.FilmList = response.data.results
         })
         .catch(function (error) {
             console.log(error);
+        });
+        axios.get(this.SerieApiUrl + serched)
+        .then((response) => {
+            console.log(response.data.results);
+            this.SerieList = response.data.results
         })
+        .catch(function (error) {
+            console.log(error);
+        });
       }
-    }
+    },
+
   },
 
   created(){
     this.getMyFilms()
-  }
+  },
 
 }
 </script>
@@ -44,7 +55,8 @@ export default{
     <main>
         <FilmSearchbar @searchfilm = "getMyFilms" />
         <ContainerFilmList 
-          :myfilmlist = "FilmList" />
+          :myfilmlist = "FilmList"
+          :myserielist = "SerieList" />
     </main>
 </template>
 
