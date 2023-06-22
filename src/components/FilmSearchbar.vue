@@ -15,7 +15,9 @@ export default{
 <template>
   <div>
     <input type="text" name="searched-film" id="searched-film" v-model="SerchedFilm">
-    <button @click="$emit('searchfilm',SerchedFilm)">cerca</button>
+    <button @click="$emit('searchfilm',SerchedFilm)">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
   </div>
 </template>
 
