@@ -8,13 +8,19 @@ export default{
     originaltitle : String,
     language : String,
     vote :Number,
+    image :String
   },
 
   data(){
     return{
       NationsWithoutFlag:["en","ja","ko","te","zh"]
+    } 
+  },
+
+  methods:{
+    getImage(urlElement){
+      return new URL(`https://image.tmdb.org/t/p/original/${urlElement}`)
     }
-    
   }
 
 }
@@ -22,6 +28,10 @@ export default{
 
 <template>
   <div>
+    <div class="box-img">
+      <img v-if="image != null" :src="getImage(image)" :alt="title+ 'poster'">
+      <img v-else src="https://cdn1.vectorstock.com/i/1000x1000/13/55/background-in-a-matrix-style-green-random-numbers-vector-39461355.jpg" alt="random background">
+    </div>
     <p>{{ title }}</p>
     <p>{{ originaltitle }}</p>
     <!-- Per far la bandiera basta mettre fi fi-(2 iniziali stato ) - vedi demo -->
@@ -36,6 +46,17 @@ export default{
 
 <style lang="scss" scoped>
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
+
+div.box-img{
+  height: 250px;
+  width: 150px;
+  img{
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+}
 
 div.box-language{
   color: white;
