@@ -31,17 +31,19 @@ export default{
 </script>
 
 <template>
-  <div>
+  <div class="card">
     <div class="box-img">
       <img v-if="image != null" :src="getImage(image)" :alt="title+ 'poster'">
       <img v-else src="https://cdn1.vectorstock.com/i/1000x1000/13/55/background-in-a-matrix-style-green-random-numbers-vector-39461355.jpg" alt="random background">
     </div>
-    <p>{{ title }}</p>
-    <p>{{ originaltitle }}</p>
+    <div class="box-text">
+      <p>{{ title }}</p>
+      <p>{{ originaltitle }}</p>
+    </div>
     <!-- Per far la bandiera basta mettre fi fi-(2 iniziali stato ) - vedi demo -->
     <div class="box-language">
-      <span v-if="NationsWithoutFlag.includes(language)" class="fi fi-xx"> {{ language }} </span>
-      <span v-else :class="`fi fi-${language}`"> {{ language }} </span>
+      <span v-if="NationsWithoutFlag.includes(language)" class="fi fi-xx">  </span>
+      <span v-else :class="`fi fi-${language}`">  </span>
     </div>
     <div class="box-star">
       <span>{{ newVote }}</span>
@@ -49,15 +51,20 @@ export default{
       <i v-for="n in getDifference(newVote)" class="fa-regular fa-star"></i>
     </div>
   </div>
-  <hr>
 </template>
 
 <style lang="scss" scoped>
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
 
+div.card{
+  margin: 1rem;
+  text-align: center;
+  width: 180px;
+}
+
 div.box-img{
   height: 250px;
-  width: 150px;
+  width: 180px;
   img{
     height: 100%;
     width: 100%;
@@ -65,7 +72,9 @@ div.box-img{
     object-fit: cover;
   }
 }
-
+div.box-text{
+  height: 80px;
+}
 div.box-language{
   color: white;
   background-color: black;
