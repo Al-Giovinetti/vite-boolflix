@@ -1,5 +1,4 @@
 <script>
-import AppHeader from "./AppHeader.vue"
 import ContainerFilmList from "./ContainerFilmList.vue"
 import FilmSearchbar from "./FilmSearchbar.vue"
 import axios from "axios"
@@ -9,7 +8,6 @@ export default{
   name:"AppMain",
 
   components:{
-    AppHeader,
     ContainerFilmList,
     FilmSearchbar,
 },
@@ -58,9 +56,9 @@ export default{
 
 <template>
   <header class="d-flex">
-    <AppHeader />
-    <FilmSearchbar @searchfilm = "getMyFilms" />
-    <div class="icon d-flex">
+    <h1>boolflix</h1>
+    <div class="header-right">
+      <FilmSearchbar @searchfilm = "getMyFilms" />
 
     </div>
   </header>
@@ -70,5 +68,11 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+@use "../styles/partials/variables.scss" as *;
+
+  header{
+    background-color: $bg-header
+
+  }
 
 </style>

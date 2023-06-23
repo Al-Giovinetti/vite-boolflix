@@ -22,12 +22,14 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+@use "../styles/partials/variables.scss" as *;
+
 div{
   padding: 1rem;
 }
 
 input{
-  background-color: black;
+  background-color: $bg-header;
   color: white;
   border: 2px solid white;
   border-radius: 10px;
@@ -37,8 +39,8 @@ input{
 button{
   padding: 0.2rem;
   margin-left:0.5rem;
-  background-color: black;
-  border: black;
+  background-color: $bg-header;
+  border: $bg-header;
   cursor: pointer;
     i{
       color: white;
