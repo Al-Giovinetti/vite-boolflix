@@ -57,9 +57,10 @@ export default{
 <template>
   <header class="d-flex">
     <h1>boolflix</h1>
-    <div class="header-right">
+    <div class="header-right d-flex">
       <FilmSearchbar @searchfilm = "getMyFilms" />
-
+      <i class="fa-solid fa-bell"></i>
+      <i class="fa-solid fa-circle-user"></i>
     </div>
   </header>
         <ContainerFilmList 
@@ -71,8 +72,25 @@ export default{
 @use "../styles/partials/variables.scss" as *;
 
   header{
-    background-color: $bg-header
+    background-color: $bg-header;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
 
+    h1{
+      color: red;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .header-right{
+      align-items: center;
+
+      i{
+        padding: 1rem;
+        font-size: 1.3rem;
+      }
+    }
   }
 
 </style>

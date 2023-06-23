@@ -13,7 +13,7 @@ export default{
 </script>
 
 <template>
-  <div>
+  <div class="d-flex">
     <input type="text" name="searched-film" id="searched-film" v-model="SerchedFilm">
     <button @click="$emit('searchfilm',SerchedFilm)">
       <i class="fa-solid fa-magnifying-glass"></i>
@@ -26,6 +26,7 @@ export default{
 
 div{
   padding: 1rem;
+  align-items: center;
 }
 
 input{
@@ -44,6 +45,7 @@ button{
   cursor: pointer;
     i{
       color: white;
+      font-size: 1.3rem;
     }
 }
 
