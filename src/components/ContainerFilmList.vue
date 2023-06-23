@@ -1,8 +1,15 @@
 <script>
 import SingleCard from "./SingleCard.vue"
+import { store } from "../store";
 
 export default{
   name:"ContainerFilmList",
+
+  data(){
+    return{
+      store
+    }
+  },
 
   components:{
     SingleCard,
@@ -18,7 +25,7 @@ export default{
 
 <template>
   <div>
-    <h2>Film Trovati</h2>
+    <h2 v-if="store.searchIsDone == true">Film Trovati</h2>
     <div class="d-flex">
       <SingleCard v-for="film in myfilmlist" 
         :title = film.title
@@ -28,7 +35,7 @@ export default{
         :image = film.poster_path
       />
     </div>
-    <h2>Serie trovate</h2>
+    <h2 v-if="store.searchIsDone == true">Serie trovate</h2>
     <div class="d-flex">
         <SingleCard v-for="serie in myserielist" 
         :title = serie.name
