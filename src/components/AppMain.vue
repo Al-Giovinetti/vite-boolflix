@@ -26,7 +26,7 @@ export default{
 
   methods:{
     getMyFilms(serched){
-      if(serched != undefined){
+      if(serched != undefined) {
         axios.get(this.FilmApiUrl + serched)
         .then((response) => {
             console.log(response.data.results);
@@ -53,7 +53,6 @@ export default{
         .catch(function (error) {
             console.log(error);
         });
-        
       }
     },
 
@@ -68,7 +67,11 @@ export default{
 
 <template>
   <header class="d-flex">
-    <h1>boolflix</h1>
+    <form action="reset-pg">
+      <button>
+        <h1 @click="ciao">boolflix</h1>
+      </button>
+    </form>
     <div class="header-right d-flex">
       <FilmSearchbar @searchfilm = "getMyFilms" />
       <i class="fa-solid fa-bell"></i>
@@ -90,10 +93,16 @@ export default{
     align-items: center;
     padding: 0.5rem 1rem;
 
+    form button{
+      background-color: $bg-header;
+      border: 0;
+    }
+
     h1{
       color: red;
       text-transform: uppercase;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .header-right{
