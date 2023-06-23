@@ -43,7 +43,7 @@ export default{
       </div>
       <!-- Per far la bandiera basta mettre fi fi-(2 iniziali stato ) - vedi demo -->
       <div class="box-language">
-        <span v-if="NationsWithoutFlag.includes(language)" class="fi fi-xx">  </span>
+        <span v-if="NationsWithoutFlag.includes(language)" class="fi fi-xx"> {{ language }} </span>
         <span v-else :class="`fi fi-${language}`">  </span>
       </div>
       <div class="box-star">
@@ -96,7 +96,7 @@ div.box-text{
   }
 }
 div.box-language{
-  color: white;
+  color: black;
   padding: 0.5rem;
   .fi{
   width: 70px;

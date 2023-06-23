@@ -18,6 +18,8 @@ export default{
         FilmList : [ ],
         SerieApiUrl : "https://api.themoviedb.org/3/search/tv?api_key=583d8ce9b90d4a8ab4d2e53f16080836&query=",
         SerieList : [ ],
+        PopularApiUrl :"https://api.themoviedb.org/3/movie/popular?api_key=583d8ce9b90d4a8ab4d2e53f16080836",
+        PopularList:[ ],
         store
     }
   },
@@ -42,6 +44,16 @@ export default{
             console.log(error);
         });
         this.store.searchIsDone = true
+      }else{
+        axios.get(this.PopularApiUrl)
+        .then((response) => {
+            console.log(response.data.results);
+            this.PopularList = response.data.results
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        
       }
     },
 
@@ -65,7 +77,8 @@ export default{
   </header>
         <ContainerFilmList 
           :myfilmlist = "FilmList"
-          :myserielist = "SerieList" />
+          :myserielist = "SerieList"
+          :popularlist = "PopularList" />
 </template>
 
 <style lang="scss" scoped>
