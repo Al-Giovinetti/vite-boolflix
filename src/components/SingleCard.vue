@@ -13,7 +13,7 @@ export default{
 
   data(){
     return{
-      NationsWithoutFlag:["en","ja","ko","te","zh"],
+      NationsWithoutFlag:["en","ja","ko","te","zh","su"],
       newVote : Math.ceil(this.vote / 2),
     } 
   },
@@ -91,13 +91,18 @@ div.box-img{
   }
 }
 div.box-text{
-  height: 80px;
+  p{
+    padding: 0.7rem 0;
+  }
 }
 div.box-language{
   color: white;
   padding: 0.5rem;
   .fi{
   width: 70px;
+  padding: 0.5rem;
+  margin: 0.4rem;
+
   }
 }
 

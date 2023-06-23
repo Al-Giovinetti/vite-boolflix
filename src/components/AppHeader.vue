@@ -1,14 +1,21 @@
 <script>
+import { store } from '../store';
 
 export default{
   name:"AppHeader",
+
+  data(){
+    return{
+      store
+    }
+  }
 
 }
 </script>
 
 <template>
     <header>
-        <h1>Boolflix</h1>
+        <h1 onclick="reload">Boolflix</h1>
     </header>
 </template>
 
@@ -22,6 +29,7 @@ h1{
   color: red;
   font-weight: bold;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 </style>

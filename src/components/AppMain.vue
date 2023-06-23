@@ -1,4 +1,5 @@
 <script>
+import AppHeader from "./AppHeader.vue"
 import ContainerFilmList from "./ContainerFilmList.vue"
 import FilmSearchbar from "./FilmSearchbar.vue"
 import axios from "axios"
@@ -8,9 +9,10 @@ export default{
   name:"AppMain",
 
   components:{
+    AppHeader,
     ContainerFilmList,
     FilmSearchbar,
-  },
+},
 
   data(){
     return{
@@ -55,12 +57,16 @@ export default{
 </script>
 
 <template>
-    <main>
-        <FilmSearchbar @searchfilm = "getMyFilms" />
+  <header class="d-flex">
+    <AppHeader />
+    <FilmSearchbar @searchfilm = "getMyFilms" />
+    <div class="icon d-flex">
+
+    </div>
+  </header>
         <ContainerFilmList 
           :myfilmlist = "FilmList"
           :myserielist = "SerieList" />
-    </main>
 </template>
 
 <style lang="scss" scoped>
